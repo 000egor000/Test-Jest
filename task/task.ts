@@ -1,4 +1,4 @@
-const arrayDb = (val) =>
+const arrayDb = (val: string): string =>
   val
     .split('')
     .map((e, i) =>
@@ -9,9 +9,10 @@ const arrayDb = (val) =>
     .map((e) => e[0].toUpperCase() + e.slice(1))
     .join('-')
 
-const getGrade = (a, b, c) => {
-  const Avr = (a, b, c) => (a + b + c) / 3
-  const LetterGrade = (a) => {
+const getGrade = (a: number, b: number, c: number): string | undefined => {
+  const Avr = (a: number, b: number, c: number): number => (a + b + c) / 3
+
+  const LetterGrade = (a: number): string | undefined => {
     if (a >= 90 && a <= 100) {
       return 'A'
     } else if (a >= 80 && a <= 90) {
@@ -24,10 +25,11 @@ const getGrade = (a, b, c) => {
       return 'F'
     }
   }
+
   return LetterGrade(Avr(a, b, c))
 }
 
-const zeroFuel = function (distance) {
+const zeroFuel = function (distance: number): number | undefined {
   return Math.abs(distance)
     .toString()
     .split('')
